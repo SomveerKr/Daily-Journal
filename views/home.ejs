@@ -1,16 +1,21 @@
-<%- include("partials/header"); -%>
+<%- include("./partials/header") -%>
+
 <h1>Home</h1>
-<p><%= startingContent %></p>
+<p><%= homeStartingContent %></p>
 
-<% posts.forEach(function(post){ %>
+<!--  for(i=0; i<posts.length; i++){ -->
+<!--    console.log(posts[i].todayPostTitle)  -->
+<!--   } -->
 
-<h1><%=post.title%></h1>
+<%# above things using array.forEach loop %> <% posts.forEach(function(post){ %>
+<h1><%= post.title %></h1>
 <p>
-  <%=post.content.substring(0, 100) + " ..."%>
-  <a href="/posts/<%=post.title%>">Read More</a>
+  <%= post.content.substring(0, 100) + " ..." %>
+  <a href="/posts/<%= post._id %>">Read More</a>
 </p>
 
 <% }) %>
+
 <div class="compose-new-journal">
   <a href="/compose"
     ><button type="button" class="btn compose-btn btn-lg btn-primary">
@@ -19,4 +24,4 @@
   >
 </div>
 
-<%- include("partials/footer"); -%>
+<%- include("partials/footer") -%>
